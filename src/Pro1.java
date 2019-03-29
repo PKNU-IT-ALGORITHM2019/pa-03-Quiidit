@@ -6,11 +6,11 @@ public class Pro1 {
 	public double [][] show_time = new double[10][10];
 	private void Process_command() {
 		Make_Rdm0();
-//		Make_Rvs0();
-//		Make_Rdm1();
-//		Make_Rvs1();
-//		Make_Rdm2();
-//		Make_Rvs2();
+		Make_Rvs0();
+		Make_Rdm1();
+		Make_Rvs1();
+		Make_Rdm2();
+		Make_Rvs2();
 		show();
 	}
 	private void Make_Rvs2() {
@@ -34,9 +34,7 @@ public class Pro1 {
 			CheckSortTime(n, Rdm, len);
 		}
 		DivideResult(n);
-//		for(int j=0; j<6; j++)
-//			System.out.print(String.format("%.4f",show_time[n][j]) + "              ");
-//		System.exit(0);
+
 	}
 
 	private void Make_Rvs1() {
@@ -60,7 +58,7 @@ public class Pro1 {
 			CheckSortTime(n, Rdm, len);
 		}
 		DivideResult(n);
-		
+
 
 	}
 	private void Make_Rvs0() {
@@ -83,9 +81,6 @@ public class Pro1 {
 			CheckSortTime(n, Rdm, len);
 		}
 		DivideResult(n);
-		for(int j =0; j<7; j++)
-			System.out.println(String.format("%.4f",show_time[0][j]));
-		System.exit(1);
 
 	}
 	private void DivideResult(int n) {
@@ -95,7 +90,7 @@ public class Pro1 {
 
 	}
 	private void CheckSortTime(int n, int[] val, int len) {
-		
+
 		show_time[n][0] += CheckBubbleSort(val, len); 
 		show_time[n][1] += CheckSelectionSort(val, len);
 		show_time[n][2] += CheckInsertionSort(val, len);
@@ -103,7 +98,6 @@ public class Pro1 {
 		show_time[n][4] += CheckQuickSort01(val, len);
 		show_time[n][5] += CheckQuickSort02(val, len);
 		show_time[n][6] += CheckQuickSort03(val, len);
-
 
 	}
 	private int[] StoreData(int[] val, int len) {
@@ -113,9 +107,38 @@ public class Pro1 {
 		return data;
 	}
 	private void show() {
-		for(int i=0; i<7; i++)
-			for(int j =0; j<6; j++)
-			System.out.println(String.format("%.4f",show_time[i][j]));
+		System.out.println("           Random1000   Reverse1000   Random10000  Reverse10000  Random100000 Reverse100000");
+		System.out.print("Bubble         ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][0]) + "        ");
+		System.out.println();
+		System.out.print("Selection      ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][1]) + "        ");
+		System.out.println();
+		System.out.print("Insertion      ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][2]) + "        ");
+		System.out.println();
+		System.out.print("Merge          ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][3]) + "        ");
+		System.out.println();
+		System.out.print("Quick1         ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][4]) + "        ");
+		System.out.println();
+		System.out.print("Quick2         ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][5]) + "        ");
+		System.out.println();
+		System.out.print("Quick3         ");
+		for(int i=0; i<6; i++)
+			System.out.print(String.format("%.4f",show_time[i][6]) + "        ");
+		System.out.println();
+
+
+
 	}
 	private double CheckQuickSort03(int[] data, int len) {
 		int [] val = new int[100000];
